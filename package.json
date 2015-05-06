@@ -4,7 +4,7 @@
   "description": "Program which simulates a simple interactive graphical editor",
   "main": "src/index.js",
   "scripts": {
-    "test": "./node_modules/jasmine-node/bin/jasmine-node spec",
+    "test": "jasmine-node spec --autotest --watch src/ --color",
     "start": "node ./src/index.js"
   },
   "keywords": [
@@ -15,7 +15,7 @@
   "private": true,
   "author": "William Thiago",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
     "jasmine-node": "^1.14.5"
   }
 }
