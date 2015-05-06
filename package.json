@@ -1,0 +1,21 @@
+{
+  "name": "dojo-graphical-editor",
+  "version": "1.0.0",
+  "description": "Program which simulates a simple interactive graphical editor",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "./node_modules/jasmine-node/bin/jasmine-node spec",
+    "start": "node ./src/index.js"
+  },
+  "keywords": [
+    "graphical",
+    "editor",
+    "dojo"
+  ],
+  "private": true,
+  "author": "William Thiago",
+  "license": "ISC",
+  "dependencies": {
+    "jasmine-node": "^1.14.5"
+  }
+}
