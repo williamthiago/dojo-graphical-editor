@@ -121,6 +121,22 @@ GraphicalEditor.prototype.fillRegion = function(row, col, color) {
 	this.fillAdjacents(rowIndex, colIndex, oldColor, color);
 };
 
+GraphicalEditor.prototype.toString = function() {
+	var output = "";
+	for (var row = 0; row < this.rows; row++) {
+		var line = "";
+		for (var col = 0; col < this.cols; col++) {
+			line += this.table[row][col];
+		}
+		output += line + "\n";
+	}
+	return output;
+};
+
+GraphicalEditor.prototype.show = function() {
+	console.log(this.toString());	
+};
+
 GraphicalEditor.prototype.validateIndex = function(row, col) {
 	if (row < 0 || row > this.rows - 1) {
 		throw new Error("Row must be between 1 and " + this.rows + ", current: " + row);
