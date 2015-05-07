@@ -6,7 +6,7 @@ describe("Tests of graphical editor draw commands", function() {
 	var editor,
 		colorA = "A",
 		colorB = "B",
-		whiteColor = "O",
+		colorC = "C",
 		rows = 5,
 		cols = 4;
 	
@@ -81,6 +81,48 @@ describe("Tests of graphical editor draw commands", function() {
 			
 		editor.drawFilledRectangle(rowStart, colStart, rowFinish, colFinish, color);
 		
+		expect(editor.table).toEqual(output);
+	});
+	
+	it("Should fill a full region with other color", function() {
+		var row = 2, col = 2, color = colorA, 
+			output = [
+				["A", "A", "A", "A"], 
+				["A", "A", "A", "A"], 
+				["A", "A", "A", "A"], 
+				["A", "A", "A", "A"], 
+				["A", "A", "A", "A"]];
+			
+		editor.fillRegion(row, col, color);
+		
+		expect(editor.table).toEqual(output);
+	});
+	
+	it("Should fill a partial region with other color", function() {
+		var output;
+		
+		editor.drawFilledRectangle(1, 3, 2, 4, colorA);
+		output = [["O", "O", "A", "A"], 
+				  ["O", "O", "A", "A"], 
+				  ["O", "O", "O", "O"], 
+			  	  ["O", "O", "O", "O"], 
+				  ["O", "O", "O", "O"]];
+		expect(editor.table).toEqual(output);
+
+		editor.drawHorizontalLine(3, 1, 3, colorB);
+		output = [["O", "O", "A", "A"], 
+				  ["O", "O", "A", "A"], 
+				  ["B", "B", "B", "O"], 
+			  	  ["O", "O", "O", "O"], 
+				  ["O", "O", "O", "O"]];
+		expect(editor.table).toEqual(output);
+		
+		editor.fillRegion(4, 2, colorC);
+		output = [["O", "O", "A", "A"], 
+				  ["O", "O", "A", "A"], 
+				  ["B", "B", "B", "C"], 
+			  	  ["C", "C", "C", "C"], 
+				  ["C", "C", "C", "C"]];
 		expect(editor.table).toEqual(output);
 	});
 });

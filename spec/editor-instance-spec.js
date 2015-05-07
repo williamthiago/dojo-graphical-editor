@@ -12,7 +12,6 @@ describe("Tests of graphical editor instance", function() {
 		expect(editor).toEqual(jasmine.any(GraphicalEditor));
 	});
 	
-	
 	it("Should initialize a table MxN (col x row)", function() {
 		var rows = 2, cols = 3,
 			output = [["O", "O", "O"], ["O", "O", "O"]];
