@@ -32,6 +32,16 @@ GraphicalEditor.prototype.clear = function () {
 	this.initialize(this.rows, this.cols);
 };
 
+GraphicalEditor.prototype.drawVerticalLine = function(rowStart, rowFinish, col, color) {
+	var rowIndexStart = rowStart - 1,
+		rowIndexFinish = rowFinish - 1,
+		colIndex = col - 1;
+	
+	for (var rowIndex = rowIndexStart; rowIndex <= rowIndexFinish; rowIndex++) {
+		this.table[rowIndex][colIndex] = color;
+	}
+};
+
 function validadeColumns(cols) {
 	if (cols < 1) {
 		throw new Error("Cols must be between 1 and M, M must be greather than 0");

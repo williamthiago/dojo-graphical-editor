@@ -41,7 +41,20 @@ describe("Tests of graphical editor draw commands", function() {
 		
 		expect(editor.table).toEqual(output);
 	});
-	
+		
+	it("Should draw a vertical line", function() {
+		var col = 2, rowStart = 3, rowFinish = 5, color = colorA, 
+			output = [
+				["O", "O", "O", "O"], 
+				["O", "O", "O", "O"], 
+				["O", "A", "O", "O"], 
+				["O", "A", "O", "O"], 
+				["O", "A", "O", "O"]];
+			
+		editor.drawVerticalLine(rowStart, rowFinish, col, color);
+		
+		expect(editor.table).toEqual(output);
+	});
 });
 
 //	var output = [
