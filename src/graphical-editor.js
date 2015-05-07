@@ -57,6 +57,23 @@ GraphicalEditor.prototype.drawHorizontalLine = function(row, colStart, colFinish
 	}
 };
 
+GraphicalEditor.prototype.drawFilledRectangle = function(rowStart, colStart, rowFinish, colFinish, color) {
+	var rowStartIndex = rowStart - 1,
+		colStartIndex = colStart - 1,
+		rowFinishIndex = rowFinish - 1,
+		colFinishIndex = colFinish - 1;
+		
+	this.validateIndex(rowStartIndex, colStartIndex);
+	this.validateIndex(rowFinishIndex, colFinishIndex);
+	
+	for (var rowIndex = rowStartIndex; rowIndex <= rowFinishIndex; rowIndex++) {
+		for (var colIndex = colStartIndex; colIndex <= colFinishIndex; colIndex++) {
+			this.table[rowIndex][colIndex] = color;
+		}
+	}
+};
+
+
 GraphicalEditor.prototype.validateIndex = function(row, col) {
 	if (row < 1 || row > this.rows - 1) {
 		throw new Error("Row must be between 1 and " + this.rows);

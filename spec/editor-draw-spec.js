@@ -69,6 +69,20 @@ describe("Tests of graphical editor draw commands", function() {
 		
 		expect(editor.table).toEqual(output);
 	});
+	
+	it("Should draw a filled rectangle line", function() {
+		var rowStart = 3, colStart = 2, rowFinish = 5, colFinish = 4, color = colorA, 
+			output = [
+				["O", "O", "O", "O"], 
+				["O", "O", "O", "O"], 
+				["O", "A", "A", "A"], 
+				["O", "A", "A", "A"], 
+				["O", "A", "A", "A"]];
+			
+		editor.drawFilledRectangle(rowStart, colStart, rowFinish, colFinish, color);
+		
+		expect(editor.table).toEqual(output);
+	});
 });
 
 //	var output = [
