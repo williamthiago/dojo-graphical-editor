@@ -10,7 +10,6 @@ describe("Tests of graphical editor draw commands", function() {
 		rows = 5,
 		cols = 4;
 	
-	
 	beforeEach(function() {
 		editor = new GraphicalEditor();
 		editor.initialize(rows, cols);
@@ -29,6 +28,20 @@ describe("Tests of graphical editor draw commands", function() {
 			
 		expect(editor.table).toEqual(output);
 	});
+	
+	it("Should clear the current table", function() {
+		var output = [
+			["O", "O", "O", "O"], 
+			["O", "O", "O", "O"], 
+			["O", "O", "O", "O"], 
+			["O", "O", "O", "O"], 
+			["O", "O", "O", "O"]];
+		
+		editor.clear();
+		
+		expect(editor.table).toEqual(output);
+	});
+	
 });
 
 //	var output = [

@@ -2,6 +2,8 @@ var WhiteColor = "O";
 
 var GraphicalEditor = function() {
 	this.table = [];
+	this.rows = 0;
+	this.cols = 0;
 };
 
 
@@ -9,6 +11,8 @@ GraphicalEditor.prototype.initialize = function (rows, cols) {
 	validadeColumns(cols);
 	validateRows(rows);
 	
+	this.rows = rows;
+	this.cols = cols;
 	this.table = [];
 	for (var rowIndex = 0; rowIndex < rows; rowIndex++) {
 		this.table[rowIndex] = [];
@@ -22,6 +26,10 @@ GraphicalEditor.prototype.drawPixel = function (row, col, color) {
 	var rowIndex = row - 1,
 		colIndex = col - 1;
 	this.table[rowIndex][colIndex] = color;
+};
+
+GraphicalEditor.prototype.clear = function () {
+	this.initialize(this.rows, this.cols);
 };
 
 function validadeColumns(cols) {
