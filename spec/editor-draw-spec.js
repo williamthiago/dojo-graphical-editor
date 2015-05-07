@@ -55,6 +55,20 @@ describe("Tests of graphical editor draw commands", function() {
 		
 		expect(editor.table).toEqual(output);
 	});
+	
+	it("Should draw a horizontal line", function() {
+		var row = 3, colStart = 2, colFinish = 4, color = colorA, 
+			output = [
+				["O", "O", "O", "O"], 
+				["O", "O", "O", "O"], 
+				["O", "A", "A", "A"], 
+				["O", "O", "O", "O"], 
+				["O", "O", "O", "O"]];
+			
+		editor.drawHorizontalLine(row, colStart, colFinish, color);
+		
+		expect(editor.table).toEqual(output);
+	});
 });
 
 //	var output = [

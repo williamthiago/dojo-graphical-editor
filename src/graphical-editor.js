@@ -8,8 +8,7 @@ var GraphicalEditor = function() {
 
 
 GraphicalEditor.prototype.initialize = function (rows, cols) {
-	validadeColumns(cols);
-	validateRows(rows);
+	this.validadeSize(rows, cols);
 	
 	this.rows = rows;
 	this.cols = cols;
@@ -36,24 +35,50 @@ GraphicalEditor.prototype.drawVerticalLine = function(rowStart, rowFinish, col, 
 	var rowIndexStart = rowStart - 1,
 		rowIndexFinish = rowFinish - 1,
 		colIndex = col - 1;
+
+	this.validateIndex(rowIndexStart, colIndex);
+	this.validateIndex(rowIndexFinish, colIndex);
 	
 	for (var rowIndex = rowIndexStart; rowIndex <= rowIndexFinish; rowIndex++) {
 		this.table[rowIndex][colIndex] = color;
 	}
 };
 
-function validadeColumns(cols) {
+GraphicalEditor.prototype.drawHorizontalLine = function(row, colStart, colFinish, color) {
+	var rowIndex = row - 1,
+		colIndexStart = colStart - 1,
+		colIndexFinish = colFinish - 1;
+		
+	this.validateIndex(rowIndex, colIndexStart);
+	this.validateIndex(rowIndex, colIndexFinish);
+	
+	for (var colIndex = colIndexStart; colIndex <= colIndexFinish; colIndex++) {
+		this.table[rowIndex][colIndex] = color;
+	}
+};
+
+GraphicalEditor.prototype.validateIndex = function(row, col) {
+	if (row < 1 || row > this.rows - 1) {
+		throw new Error("Row must be between 1 and " + this.rows);
+	}
+	
+	console.log(this.rows);
+	if (col < 1 || col > this.cols - 1) {
+		throw new Error("Col must be between 1 and " + this.cols);
+	}
+	
+	return true;
+};
+
+GraphicalEditor.prototype.validadeSize = function(rows, cols) {
+	if (rows < 1 || rows > 250) {
+		throw new Error("Rows must be between 1 and N, N must be less than 250");
+	}
+
 	if (cols < 1) {
 		throw new Error("Cols must be between 1 and M, M must be greather than 0");
 	}
 	return true;
-}
-
-function validateRows(rows) {
-	if (rows < 1 || rows > 250) {
-		throw new Error("Rows must be between 1 and N, N must be less than 250");
-	}
-	return true;
-}
+};
 
 module.exports = GraphicalEditor;
