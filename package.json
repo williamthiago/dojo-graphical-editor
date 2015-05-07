@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "jasmine-node spec --autotest --watch src/ --color",
-    "start": "node ./src/index.js"
+    "run": "node ./src/index.js"
   },
   "keywords": [
     "graphical",

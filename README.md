@@ -1,17 +1,15 @@
 # Graphical Editor
 Write a program which simulates a simple interactive graphical editor.
 
-### Install
-'''
-npm install
-'''
-
 ### Usage
 '''
 npm run
 '''
 
-### Problem
+### Notes
+The original command S write to a file. In this example the command was replaced by show in console.
+
+## Original Problem
 Graphical editors such as Photoshop allow us to alter bit-mapped images in the same way that text editors allow us to modify documents. Images are represented as an M × N array of pixels, where each pixel has a given color.
 Your task is to write a program which simulates a simple interactive graphical editor.
 
