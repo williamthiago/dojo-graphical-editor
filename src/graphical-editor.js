@@ -4,11 +4,12 @@ var GraphicalEditor = function() {
 	this.table = [];
 	this.rows = 0;
 	this.cols = 0;
+	
+	this.initialize(1, 1);
 };
 
-
 GraphicalEditor.prototype.initialize = function (rows, cols) {
-	this.validadeSize(rows, cols);
+	this.validateSize(rows, cols);
 	
 	this.rows = rows;
 	this.cols = cols;
@@ -149,7 +150,7 @@ GraphicalEditor.prototype.validateIndex = function(row, col) {
 	return true;
 };
 
-GraphicalEditor.prototype.validadeSize = function(rows, cols) {
+GraphicalEditor.prototype.validateSize = function(rows, cols) {
 	if (rows < 1 || rows > 250) {
 		throw new Error("Rows must be between 1 and N, N must be less than 250");
 	}
